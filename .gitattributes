@@ -1,0 +1,5 @@
+# To force Git to always keep Linux line endings (LF) for shell scripts regardless of who is working on the project
+# if not then git will convert Unix-style line endings (LF) to Windows-style line endings (CRLF) on next time whenever this code is cloned/ git checkout
+# If this file .gitattributes not added thn shell files can't be used next time in Terraform as it is changed to CRLF
+
+*.sh text eol=lf
