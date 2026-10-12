@@ -111,12 +111,12 @@ resource "aws_instance" "demo" {
   provisioner "remote-exec" {
     inline = [
       "echo 'Hello from Remote Instance' ",
-      "sudo apt update -y", 
+      "sudo apt update -y",
       "sudo apt install python3-pip python3.14-venv -y",
       "cd /home/ubuntu",
-      "python3 -m venv . && ls",      # Creating Virtual Env for python to install its packages bcz in Debian Ubuntu OS, this is considered as external pckg, so created venv.
-      "pip3 install flask",  #You need elevated privileges when binding a normal application to a privileged port (below 1024 (1 to 1024)). Means u need to run the app as root if its port is 80/under the 1024. SO give 5000 as port and allow it in security group
-      "python3 app.py &"     # Running App in background
+      "python3 -m venv . && ls", # Creating Virtual Env for python to install its packages bcz in Debian Ubuntu OS, this is considered as external pckg, so created venv.
+      "pip3 install flask",      #You need elevated privileges when binding a normal application to a privileged port (below 1024 (1 to 1024)). Means u need to run the app as root if its port is 80/under the 1024. SO give 5000 as port and allow it in security group
+      "python3 app.py &"         # Running App in background
     ]
   }
 
